@@ -98,11 +98,11 @@ body {
 <header class="hero d-flex align-items-center text-white" id="home">
   <div class="container">
     <h1 class="display-2">Welcome to my portfolio</h1>
-    <p class="fs-5">I hope you enjoy browsing through my work!</p>
+  <p class="fs-5" id="fact">Loading a fun fact...</p>
     <a href="#work" class="btn btn-light btn-lg mt-3">Straight to the fun stuff</a>
     <div class="fs-4 mt-5">
-      <a href="https://github.com/Jaden404" class="social-link me-2" aria-label="GitHub"><i class="fa fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/JadenJelier" class="social-link" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+      <a href="https://github.com/Jaden404" class="social-link me-2" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/JadenJelier" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin"></i></a>
     </div>
   </div>
 </header>
@@ -284,8 +284,8 @@ body {
 <footer class="bg-dark text-white text-center py-5">
   <a href="#home" class="btn btn-light"><i class="fa fa-arrow-up me-2"></i>To the top</a>
   <div class="fs-3 mt-4">
-    <a href="https://github.com/Jaden404" class="social-link me-2" aria-label="GitHub"><i class="fa fa-github"></i></a>
-    <a href="https://www.linkedin.com/in/JadenJelier" class="social-link" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+    <a href="https://github.com/Jaden404" class="social-link me-2" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/JadenJelier" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin"></i></a>
   </div>
 </footer>
 
@@ -321,12 +321,27 @@ body {
 <script>
 let myEmail = "your.email@example.com";
 
+fetch("https://uselessfacts.jsph.pl/api/v2/facts/random?language=en")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    document.getElementById("fact").textContent = data.text;
+  })
+  .catch(function(error) {
+    document.getElementById("fact").textContent = "Could not load a fact right now.";
+  });
+
 document.getElementById("contactForm").addEventListener("submit", function(event) {
   event.preventDefault();
 
   let name = document.getElementById("contactName").value;
   let email = document.getElementById("contactEmail").value;
   let message = document.getElementById("contactMessage").value;
+
+  let nameMinLength = 2;
+  let emailMinLength = 5;
+  let messageMinLength = 4;
 
   let subject = "Message from " + name;
   let body = message + "\n\nFrom: " + name + " (" + email + ")";
