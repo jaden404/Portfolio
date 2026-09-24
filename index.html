@@ -1,551 +1,353 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <title>JadenJelier</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Portfolio of Jaden, a software engineering student from Utrecht.">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-* {
-  box-sizing: border-box;
+html {
+  scroll-padding-top: 70px;
 }
 
-body, html {
-  margin: 0;
-  height: 100%;
+body {
+  font-family: "Raleway", sans-serif;
   line-height: 1.8;
-  font-size: 15px;
-  font-family: "Raleway", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
-}
-
-.top {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 2;
-}
-
-.bar {
-  width: 100%;
-  overflow: hidden;
-}
-
-.bar-item {
-  display: block;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-  color: inherit;
-  border: none;
-  background-color: inherit;
-}
-
-.bar .button {
-  padding: 16px;
-}
-
-.button {
-  display: inline-block;
-  padding: 8px 16px;
-  border: none;
-  cursor: pointer;
-  text-align: center;
-  text-decoration: none;
-  white-space: nowrap;
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  background-color: inherit;
-}
-
-.button:hover {
-  background-color: #cccccc;
-  color: #000000;
-}
-
-.card {
-  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
-}
-
-.wide {
+.logo {
   letter-spacing: 4px;
 }
 
-.right {
-  float: right;
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background-image: url("images/mac.jpg");
+  background-size: cover;
+  background-position: center;
 }
 
-.center {
-  text-align: center;
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
-.container {
-  padding: 0.01em 16px;
+.hero .container {
+  position: relative;
 }
 
-.section {
-  margin-top: 16px;
-  margin-bottom: 16px;
-}
-
-.white {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-.black {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-.light-grey {
-  background-color: #f1f1f1;
-  color: #000000;
-}
-
-.grey {
-  background-color: #9e9e9e;
-  color: #000000;
-}
-
-.dark-grey {
-  background-color: #616161;
-  color: #ffffff;
-}
-
-.transparent {
-  background-color: transparent;
-}
-
-.text-white {
-  color: #ffffff;
-}
-
-.text-grey {
-  color: #9e9e9e;
-}
-
-.large {
-  font-size: 18px;
-}
-
-.xlarge {
-  font-size: 32px;
-}
-
-.xxlarge {
-  font-size: 36px;
-}
-
-.jumbo {
+.feature-icon {
   font-size: 64px;
 }
 
-.padding-16 {
-  padding: 16px;
+.social-link {
+  color: inherit;
+  text-decoration: none;
 }
 
-.padding-large {
-  padding: 12px 24px;
-}
-
-.padding-64 {
-  padding: 64px 32px;
-}
-
-.margin-top {
-  margin-top: 16px;
-}
-
-.margin-bottom {
-  margin-bottom: 16px;
-}
-
-.margin-right {
-  margin-right: 16px;
-}
-
-.opacity {
-  opacity: 0.6;
-}
-
-.hover-opacity:hover {
-  opacity: 0.6;
-}
-
-.hover-opacity-off:hover {
-  opacity: 1;
-}
-
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 200px;
-  height: 100%;
-  z-index: 3;
-  overflow: auto;
-}
-
-.bar-block .bar-item {
-  float: none;
-  width: 100%;
-  padding: 8px 16px;
-  text-align: left;
-}
-
-.animate-left {
-  position: relative;
-  animation: animateleft 0.4s;
-}
-
-@keyframes animateleft {
-  from {
-    left: -300px;
-    opacity: 0;
-  }
-  to {
-    left: 0;
-    opacity: 1;
-  }
-}
-
-.display-container {
-  position: relative;
-}
-
-.display-left {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-}
-
-.display-bottomleft {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
-.display-topright {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-.grayscale-min {
-  filter: grayscale(50%);
-}
-
-.greyscale {
-  filter: grayscale(75%);
-}
-
-.image {
-  max-width: 100%;
-  height: auto;
-}
-
-.bgimg-1 {
-  background-position: center;
-  background-size: cover;
-  background-image: url("images/mac.jpg");
-  min-height: 100%;
-}
-
-.row-padding::after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.row-padding > div {
-  padding: 0 8px;
-}
-
-.col {
-  float: left;
-  width: 100%;
-}
-
-.quarter {
-  float: left;
-  width: 100%;
-}
-
-@media (min-width: 601px) {
-  .m6 {
-    width: 50%;
-  }
-  .quarter {
-    width: 50%;
-  }
-}
-
-@media (min-width: 993px) {
-  .l3 {
-    width: 25%;
-  }
-  .quarter {
-    width: 25%;
-  }
-}
-
-@media (max-width: 600px) {
-  .hide-small {
-    display: none;
-  }
-}
-
-@media (min-width: 601px) and (max-width: 992px) {
-  .hide-medium {
-    display: none;
-  }
-}
-
-@media (min-width: 993px) {
-  .hide-large {
-    display: none;
-  }
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  padding-top: 100px;
-  overflow: auto;
-  z-index: 3;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-
-.modal-content {
-  position: relative;
-  margin: auto;
-  width: 600px;
-  max-width: 100%;
-}
-
-.animate-zoom {
-  animation: animatezoom 0.6s;
-}
-
-@keyframes animatezoom {
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-}
-
-@media (max-width: 900px) {
-  .project-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 500px) {
-  .project-grid {
-    grid-template-columns: 1fr;
-  }
+.social-link:hover {
+  opacity: 0.7;
 }
 
 .tile-box {
+  display: block;
   width: 100%;
   aspect-ratio: 4 / 3;
   overflow: hidden;
-  background-color: #eeeeee;
   border-radius: 8px;
+  background-color: #eeeeee;
+  cursor: pointer;
 }
 
 .tile-box img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.tile-box:hover img {
+  opacity: 0.7;
 }
 </style>
 </head>
 <body>
 
-<div class="top">
-  <div class="bar white card" id="myNavbar">
-    <a href="#home" class="bar-item button wide">LOGO</a>
-    <div class="right hide-small">
-      <a href="#about" class="bar-item button">WhoAmI</a>
-      <a href="#work" class="bar-item button"><i class="fa fa-th"></i> My Work</a>
-      <a href="#contact" class="bar-item button"><i class="fa fa-envelope"></i> Blog</a>
+<nav class="navbar navbar-expand-md bg-white fixed-top shadow-sm">
+  <div class="container">
+    <a class="navbar-brand logo" href="#home">JadenJelier</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-label="Open menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navmenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#about">WhoAmI</a></li>
+        <li class="nav-item"><a class="nav-link" href="#work"><i class="fa fa-th"></i> My Work</a></li>
+        <li class="nav-item"><a class="nav-link" href="#blog"><i class="fa fa-pencil"></i> Blog</a></li>
+        <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#modalContact"><i class="fa fa-envelope"></i> Contact</button></li>
+      </ul>
     </div>
-
-    <a href="javascript:void(0)" class="bar-item button right hide-large hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars"></i>
-    </a>
   </div>
-</div>
-
-<nav class="sidebar bar-block black card animate-left hide-medium hide-large" style="display:none" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="bar-item button large padding-16">Close ×</a>
-  <a href="#about" onclick="w3_close()" class="bar-item button">WhoAmI</a>
-  <a href="#work" onclick="w3_close()" class="bar-item button">My Work</a>
-  <a href="#contact" onclick="w3_close()" class="bar-item button">Blog</a>
 </nav>
 
-<header class="bgimg-1 display-container grayscale-min" id="home">
-  <div class="display-left text-white" style="padding:48px">
-    <span class="jumbo hide-small">Start something that matters</span><br>
-    <span class="xxlarge hide-large hide-medium">Start something that matters</span><br>
-    <span class="large">Stop wasting valuable time with projects that just isn't you.</span>
-    <p><a href="#about" class="button white padding-large large margin-top opacity hover-opacity-off">Learn more and start today</a></p>
-  </div>
-  <div class="display-bottomleft text-grey large" style="padding:24px 48px">
-    <i class="fa fa-facebook-official hover-opacity"></i>
-    <i class="fa fa-instagram hover-opacity"></i>
-    <i class="fa fa-snapchat hover-opacity"></i>
-    <i class="fa fa-pinterest-p hover-opacity"></i>
-    <i class="fa fa-twitter hover-opacity"></i>
-    <i class="fa fa-linkedin hover-opacity"></i>
+<header class="hero d-flex align-items-center text-white" id="home">
+  <div class="container">
+    <h1 class="display-2">Welcome to my portfolio</h1>
+  <p class="fs-5" id="fact">Loading a fun fact...</p>
+    <a href="#work" class="btn btn-light btn-lg mt-3">Straight to the fun stuff</a>
+    <div class="fs-4 mt-5">
+      <a href="https://github.com/Jaden404" class="social-link me-2" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/JadenJelier" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin"></i></a>
+    </div>
   </div>
 </header>
 
-<div class="container" style="padding:128px 16px" id="about">
-  <h3 class="center">Hi I'm Jaden,</h3>
-  <p class="center large">a student in software engineering from Utrecht. I'm excited to keep learning and growing since ive loved computers my whole life. since 2025, I have worked on some awesome projects and building my skills. I love turning complex problems into simple, beautiful solutions. When I am not working, you can find me outdoors, in the climbing gym, or working on fun sideprojects. Let's build something great together.</p>
-  <div class="row-padding center" style="margin-top:64px">
-    <div class="quarter">
-      <i class="fa fa-desktop margin-bottom jumbo center"></i>
-      <p class="large">Responsive</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="quarter">
-      <i class="fa fa-heart margin-bottom jumbo"></i>
-      <p class="large">Passion</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="quarter">
-      <i class="fa fa-diamond margin-bottom jumbo"></i>
-      <p class="large">Design</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="quarter">
-      <i class="fa fa-cog margin-bottom jumbo"></i>
-      <p class="large">Support</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-    </div>
-  </div>
-</div>
-
-<div class="container" style="padding:128px 16px" id="work">
-  <h3 class="center">My Projects</h3>
-  <p class="center large">Some of what I've made so far</p>
-
-  <div class="project-grid" style="margin-top:64px">
-    <div class="tile-box">
-      <img src="images/Hotel.png" onclick="onClick(this)" alt="A Hotel management Simulator">
-    </div>
-    <div class="tile-box">
-      <img src="images/Parking.png" onclick="onClick(this)" alt="An interface for a parking sensor system">
-    </div>
-    <div class="tile-box">
-      <img src="images/Smart.png" onclick="onClick(this)" alt="A Smart Home interface, with API integration and Custom Sensor data management">
-    </div>
-    <div class="tile-box">
-      <img src="images/Placeholder.png" onclick="onClick(this)" alt="Stay tuned for more!">
-    </div>
-  </div>
-</div>
-
-<div id="modal01" class="modal black" onclick="this.style.display='none'">
-  <span class="button xxlarge black padding-large display-topright" title="Close Modal Image">×</span>
-  <div class="modal-content animate-zoom center transparent padding-64">
-    <img id="img01" class="image">
-    <p id="caption" class="opacity large"></p>
-  </div>
-</div>
-
-<div class="container light-grey padding-64">
-  <div class="row-padding">
-    <div class="col m6">
-      <h3>Our Skills.</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>
-      tempor incididunt ut labore et dolore.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>
-      tempor incididunt ut labore et dolore.</p>
-    </div>
-    <div class="col m6">
-      <p class="wide"><i class="fa fa-camera margin-right"></i>Photography</p>
-      <div class="grey">
-        <div class="container dark-grey center" style="width:90%">90%</div>
+<section class="py-5" id="about">
+  <div class="container py-5">
+    <h2 class="text-center">Hi I'm Jaden,</h2>
+    <p class="text-center fs-5">a student in software engineering from Utrecht. I'm excited to keep learning and growing since ive loved computers my whole life. since 2025, I have worked on some awesome projects and building my skills. I love turning complex problems into simple, beautiful solutions. When I am not working, you can find me outdoors, in the climbing gym, or working on fun sideprojects. Let's build something great together.</p>
+    <div class="row text-center mt-5 g-4">
+      <div class="col-lg-3 col-md-6">
+        <i class="fa fa-desktop feature-icon"></i>
+        <h3 class="fs-5 mt-3">Responsive</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
       </div>
-      <p class="wide"><i class="fa fa-desktop margin-right"></i>Web Design</p>
-      <div class="grey">
-        <div class="container dark-grey center" style="width:85%">85%</div>
+      <div class="col-lg-3 col-md-6">
+        <i class="fa fa-heart feature-icon"></i>
+        <h3 class="fs-5 mt-3">Passion</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
       </div>
-      <p class="wide"><i class="fa fa-photo margin-right"></i>Photoshop</p>
-      <div class="grey">
-        <div class="container dark-grey center" style="width:75%">75%</div>
+      <div class="col-lg-3 col-md-6">
+        <i class="fa fa-diamond feature-icon"></i>
+        <h3 class="fs-5 mt-3">Design</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <i class="fa fa-cog feature-icon"></i>
+        <h3 class="fs-5 mt-3">Support</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="container light-grey" style="padding:128px 16px" id="contact">
-  <h3 class="center">Blog</h3>
-  <p class="center large">Read what I've been up to.</p>
-  <div style="margin-top:48px">
-    <img src="images/map.jpg" class="image greyscale" style="width:100%;margin-top:48px">
+<section class="py-5 bg-light" id="work">
+  <div class="container py-5">
+    <h2 class="text-center">My Projects</h2>
+    <p class="text-center fs-5">Some of what I've made so far</p>
+    <div class="row mt-5 g-3">
+      <div class="col-lg-3 col-md-6">
+        <button type="button" class="tile-box border-0 p-0" data-bs-toggle="modal" data-bs-target="#modalHotel">
+          <img src="images/Hotel.png" alt="A Hotel management Simulator">
+        </button>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <button type="button" class="tile-box border-0 p-0" data-bs-toggle="modal" data-bs-target="#modalParking">
+          <img src="images/Parking.png" alt="An interface for a parking sensor system">
+        </button>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <button type="button" class="tile-box border-0 p-0" data-bs-toggle="modal" data-bs-target="#modalSmart">
+          <img src="images/Smart.png" alt="A Smart Home interface">
+        </button>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <button type="button" class="tile-box border-0 p-0" data-bs-toggle="modal" data-bs-target="#modalSoon">
+          <img src="images/Placeholder.png" alt="Stay tuned for more!">
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade" id="modalHotel" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <img src="images/Hotel.png" class="img-fluid" alt="A Hotel management Simulator">
+      <div class="modal-body text-center">A Hotel management Simulator</div>
+    </div>
   </div>
 </div>
 
-<footer class="center black padding-64">
-  <a href="#home" class="button light-grey"><i class="fa fa-arrow-up margin-right"></i>To the top</a>
-  <div class="xlarge section">
-    <i class="fa fa-facebook-official hover-opacity"></i>
-    <i class="fa fa-instagram hover-opacity"></i>
-    <i class="fa fa-snapchat hover-opacity"></i>
-    <i class="fa fa-pinterest-p hover-opacity"></i>
-    <i class="fa fa-twitter hover-opacity"></i>
-    <i class="fa fa-linkedin hover-opacity"></i>
+<div class="modal fade" id="modalParking" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <img src="images/Parking.png" class="img-fluid" alt="An interface for a parking sensor system">
+      <div class="modal-body text-center">An interface for a parking sensor system</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalSmart" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <img src="images/Smart.png" class="img-fluid" alt="A Smart Home interface">
+      <div class="modal-body text-center">A Smart Home interface, with API integration and custom sensor data management</div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modalSoon" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close btn-close-white ms-auto" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <img src="images/Placeholder.png" class="img-fluid" alt="Stay tuned for more!">
+      <div class="modal-body text-center">Stay tuned for more!</div>
+    </div>
+  </div>
+</div>
+
+<section class="py-5" id="skills">
+  <div class="container py-5">
+    <div class="row g-5">
+      <div class="col-md-6">
+        <h2>My Skills.</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      </div>
+      <div class="col-md-6">
+        <p class="mb-1"><i class="fa fa-code me-2"></i>Programming</p>
+        <div class="progress mb-4" style="height:24px">
+          <div class="progress-bar bg-secondary" style="width:90%">90%</div>
+        </div>
+        <p class="mb-1"><i class="fa fa-desktop me-2"></i>Web Design</p>
+        <div class="progress mb-4" style="height:24px">
+          <div class="progress-bar bg-secondary" style="width:85%">85%</div>
+        </div>
+        <p class="mb-1"><i class="fa fa-database me-2"></i>Databases</p>
+        <div class="progress mb-4" style="height:24px">
+          <div class="progress-bar bg-secondary" style="width:75%">75%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5 bg-light" id="blog">
+  <div class="container py-5">
+    <h2 class="text-center">Blog</h2>
+    <p class="text-center fs-5">Read what I've been up to.</p>
+    <div class="row mt-5 g-4">
+      <div class="col-lg-4 col-md-6">
+        <article class="card h-100 shadow-sm">
+          <img src="images/post-parking.png" class="card-img-top" alt="">
+          <div class="card-body">
+            <p class="text-muted small mb-1">12 September 2026</p>
+            <h3 class="card-title fs-5">Building a parking sensor interface</h3>
+            <p class="card-text">What I learned wiring up ultrasonic sensors and getting the readings onto a screen without the numbers jumping around.</p>
+            <a href="posts/parking-sensor.html" class="btn btn-dark btn-sm">Read more</a>
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <article class="card h-100 shadow-sm">
+          <img src="images/post-smarthome.png" class="card-img-top" alt="">
+          <div class="card-body">
+            <p class="text-muted small mb-1">28 August 2026</p>
+            <h3 class="card-title fs-5">Talking to an API for the first time</h3>
+            <p class="card-text">My smart home project needed live weather data. Here is everything that went wrong before it went right.</p>
+            <a href="posts/first-api.html" class="btn btn-dark btn-sm">Read more</a>
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <article class="card h-100 shadow-sm">
+          <img src="images/post-climbing.png" class="card-img-top" alt="">
+          <div class="card-body">
+            <p class="text-muted small mb-1">5 August 2026</p>
+            <h3 class="card-title fs-5">Why I started climbing</h3>
+            <p class="card-text">Turns out reading a route and debugging a program use a surprisingly similar part of your brain.</p>
+            <a href="posts/climbing.html" class="btn btn-dark btn-sm">Read more</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="bg-dark text-white text-center py-5">
+  <a href="#home" class="btn btn-light"><i class="fa fa-arrow-up me-2"></i>To the top</a>
+  <div class="fs-3 mt-4">
+    <a href="https://github.com/Jaden404" class="social-link me-2" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/JadenJelier" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin"></i></a>
   </div>
 </footer>
 
+<div class="modal fade" id="modalContact" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white" data-bs-theme="dark">
+      <div class="modal-header border-0">
+        <h2 class="modal-title fs-4">Contact me</h2>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="contactForm">
+          <div class="mb-3">
+            <label for="contactName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="contactName" required>
+          </div>
+          <div class="mb-3">
+            <label for="contactEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="contactEmail" required>
+          </div>
+          <div class="mb-3">
+            <label for="contactMessage" class="form-label">Message</label>
+            <textarea class="form-control" id="contactMessage" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-light w-100">Send</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
+let myEmail = "your.email@example.com";
 
-var mySidebar = document.getElementById("mySidebar");
+fetch("https://uselessfacts.jsph.pl/api/v2/facts/random?language=en")
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(data) {
+    document.getElementById("fact").textContent = data.text;
+  })
+  .catch(function(error) {
+    document.getElementById("fact").textContent = "Could not load a fact right now.";
+  });
 
-function w3_open() {
-  if (mySidebar.style.display === 'block') {
-    mySidebar.style.display = 'none';
-  } else {
-    mySidebar.style.display = 'block';
-  }
-}
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
 
-function w3_close() {
-  mySidebar.style.display = "none";
-}
+  let name = document.getElementById("contactName").value;
+  let email = document.getElementById("contactEmail").value;
+  let message = document.getElementById("contactMessage").value;
+
+  let nameMinLength = 2;
+  let emailMinLength = 5;
+  let messageMinLength = 4;
+
+  let subject = "Message from " + name;
+  let body = message + "\n\nFrom: " + name + " (" + email + ")";
+
+  window.location.href = "mailto:" + myEmail + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+});
 </script>
 
 </body>
