@@ -1,6 +1,5 @@
 const myEmail = "your.email@example.com";
 
-const contactModal = document.getElementById("modalContact");
 const contactForm = document.getElementById("contactForm");
 const nameInput = document.getElementById("contactName");
 const emailInput = document.getElementById("contactEmail");
@@ -90,7 +89,7 @@ const validateForm = () => {
 const showFormStatus = (text, type) => {
   formStatus.textContent = "";
   const alert = document.createElement("p");
-  alert.className = `alert alert-${type} mb-0`;
+  alert.className = `form-message form-message-${type}`;
   alert.textContent = text;
   formStatus.appendChild(alert);
 };
@@ -112,7 +111,7 @@ const handleSubmit = (event) => {
   event.preventDefault();
 
   if (!validateForm()) {
-    showFormStatus("Some fields need your attention. Check the messages below each field.", "danger");
+    showFormStatus("Some fields need your attention. Check the messages below each field.", "error");
     focusFirstError();
     return;
   }
@@ -124,14 +123,6 @@ const handleSubmit = (event) => {
   showFormStatus(`Thanks, ${name}! Your message is ready to send in your email app.`, "success");
   openEmailApp(name, email, message);
   contactForm.reset();
-};
-
-const resetForm = () => {
-  contactForm.reset();
-  clearError(nameInput);
-  clearError(emailInput);
-  clearError(messageInput);
-  formStatus.textContent = "";
 };
 
 contactForm.addEventListener("submit", handleSubmit);
@@ -153,5 +144,3 @@ messageInput.addEventListener("input", () => {
     validateMessage();
   }
 });
-
-contactModal.addEventListener("hidden.bs.modal", resetForm);
