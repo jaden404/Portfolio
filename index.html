@@ -8,207 +8,136 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-html {
-  scroll-padding-top: 70px;
-}
-
-body {
-  font-family: "Raleway", sans-serif;
-  line-height: 1.8;
-}
-
-.logo {
-  letter-spacing: 4px;
-}
-
-.hero {
-  position: relative;
-  min-height: 100vh;
-  background-image: url("images/mac.jpg");
-  background-size: cover;
-  background-position: center;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.hero .container {
-  position: relative;
-}
-
-.feature-icon {
-  font-size: 64px;
-}
-
-.social-link {
-  color: inherit;
-  text-decoration: none;
-}
-
-.social-link:hover {
-  opacity: 0.7;
-}
-
-.tile-box {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  border-radius: 8px;
-  background-color: #eeeeee;
-  cursor: pointer;
-}
-.footer {
-  background-image: url("images/landscape.svg");
-  background-size: cover;
-  background-position: center bottom;
-  min-height: 300px;
-}
-
-.tile-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.2s;
-}
-
-.tile-box:hover img {
-  opacity: 0.7;
-}
-</style>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<nav class="navbar navbar-expand-md bg-white fixed-top shadow-sm">
-  <div class="container">
+<nav class="navbar navbar-expand-md site-nav">
+  <div class="wrapper nav-inner">
     <a class="navbar-brand logo" href="index.html">JadenJelier</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu" aria-label="Open menu">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navmenu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html"><i class="fa fa-user"></i> WhoAmI</a></li>
-        <li class="nav-item"><a class="nav-link" href="projecten.html"><i class="fa fa-th"></i> My Work</a></li>
-        <li class="nav-item"><a class="nav-link" href="blog.html"><i class="fa fa-pencil"></i> Blog</a></li>
-        <li class="nav-item"><button type="button" class="nav-link" data-bs-toggle="modal" data-bs-target="#modalContact"><i class="fa fa-envelope"></i> Contact</button></li>
+      <ul class="navbar-nav nav-links">
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html"><i class="fa fa-user" aria-hidden="true"></i> WhoAmI</a></li>
+        <li class="nav-item"><a class="nav-link" href="projecten.html"><i class="fa fa-th" aria-hidden="true"></i> My Work</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html"><i class="fa fa-pencil" aria-hidden="true"></i> Blog</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#contact"><i class="fa fa-envelope" aria-hidden="true"></i> Contact</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<header class="hero d-flex align-items-center text-white">
-  <div class="container">
-    <h1 class="display-2">Welcome to my portfolio</h1>
-    <div id="fact" aria-live="polite"></div>
-    <a href="projecten.html" class="btn btn-light btn-lg mt-4">Straight to the fun stuff</a>
-    <div class="fs-4 mt-5">
-      <a href="https://github.com/Jaden404" class="social-link me-2" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/JadenJelier" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin"></i></a>
+<header class="hero">
+  <div class="wrapper hero-content">
+    <h1>Welcome to my portfolio</h1>
+    <div id="fact" class="fact" aria-live="polite"></div>
+    <a href="projecten.html" class="button button-large">Straight to the fun stuff</a>
+    <div class="social-links">
+      <a href="https://github.com/Jaden404" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa fa-github" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/JadenJelier" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
     </div>
   </div>
 </header>
 
 <main>
-  <section class="py-5" id="about">
-    <div class="container py-5">
-      <h2 class="text-center">Hi I'm Jaden,</h2>
-      <p class="text-center fs-5">a student in software engineering from Utrecht. I'm excited to keep learning and growing since ive loved computers my whole life. since 2025, I have worked on some awesome projects and building my skills. I love turning complex problems into simple, beautiful solutions. When I am not working, you can find me outdoors, in the climbing gym, or working on fun sideprojects. Let's build something great together.</p>
-      <div class="row text-center mt-5 g-4">
-        <div class="col-lg-3 col-md-6">
-          <i class="fa fa-desktop feature-icon"></i>
-          <h3 class="fs-5 mt-3">Responsive</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+  <section class="section" id="about">
+    <div class="wrapper">
+      <h2 class="section-title">Hi, I'm Jaden</h2>
+      <p class="section-intro">I'm a software engineering student from Utrecht. I've loved computers my whole life and I'm excited to keep learning and growing. Since 2025 I have worked on some awesome projects and built up my skills. I love turning complex problems into simple, beautiful solutions. When I'm not working, you can find me outdoors, in the climbing gym, or working on fun side projects. Let's build something great together.</p>
+
+      <div class="about-grid">
+        <div class="about-item">
+          <i class="fa fa-code" aria-hidden="true"></i>
+          <h3>Building</h3>
+          <p>Web interfaces, sensor dashboards and simulations</p>
         </div>
-        <div class="col-lg-3 col-md-6">
-          <i class="fa fa-heart feature-icon"></i>
-          <h3 class="fs-5 mt-3">Passion</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <div class="about-item">
+          <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+          <h3>Learning</h3>
+          <p>HTML, CSS and JavaScript, one project at a time</p>
         </div>
-        <div class="col-lg-3 col-md-6">
-          <i class="fa fa-diamond feature-icon"></i>
-          <h3 class="fs-5 mt-3">Design</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <div class="about-item">
+          <i class="fa fa-tree" aria-hidden="true"></i>
+          <h3>Outside of code</h3>
+          <p>Climbing, being outdoors and fun side projects</p>
         </div>
-        <div class="col-lg-3 col-md-6">
-          <i class="fa fa-cog feature-icon"></i>
-          <h3 class="fs-5 mt-3">Support</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      </div>
+
+      <div class="facts">
+        <h3>Quick facts</h3>
+        <dl class="facts-list">
+          <dt>Name</dt>
+          <dd>Jaden Jelier</dd>
+          <dt>Location</dt>
+          <dd>Utrecht</dd>
+          <dt>Study</dt>
+          <dd>Software Engineering</dd>
+          <dt>Building projects since</dt>
+          <dd>2025</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-light" id="skills">
+    <div class="wrapper">
+      <h2 class="section-title">My skills</h2>
+      <p class="section-intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <h3><i class="fa fa-code" aria-hidden="true"></i>Programming</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="skill-item">
+          <h3><i class="fa fa-desktop" aria-hidden="true"></i>Web design</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="skill-item">
+          <h3><i class="fa fa-database" aria-hidden="true"></i>Databases</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-5 bg-light" id="skills">
-    <div class="container py-5">
-      <div class="row gx-4 gy-5">
-        <div class="col-md-6">
-          <h2>My Skills.</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
-        </div>
-        <div class="col-md-6">
-          <p class="mb-1"><i class="fa fa-code me-2"></i>Programming</p>
-          <div class="progress mb-4" style="height:24px">
-            <div class="progress-bar bg-secondary" style="width:90%">90%</div>
+  <section class="section" id="contact">
+    <div class="wrapper">
+      <h2 class="section-title">Contact me</h2>
+      <p class="section-intro">Have a question or want to work together? Send me a message.</p>
+      <div class="contact-form">
+        <form id="contactForm" novalidate>
+          <div class="form-field">
+            <label for="contactName" class="form-label">Name</label>
+            <input type="text" class="form-control" id="contactName" autocomplete="name" required aria-describedby="contactNameError">
+            <div class="invalid-feedback" id="contactNameError"></div>
           </div>
-          <p class="mb-1"><i class="fa fa-desktop me-2"></i>Web Design</p>
-          <div class="progress mb-4" style="height:24px">
-            <div class="progress-bar bg-secondary" style="width:85%">85%</div>
+          <div class="form-field">
+            <label for="contactEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="contactEmail" autocomplete="email" required aria-describedby="contactEmailError">
+            <div class="invalid-feedback" id="contactEmailError"></div>
           </div>
-          <p class="mb-1"><i class="fa fa-database me-2"></i>Databases</p>
-          <div class="progress mb-4" style="height:24px">
-            <div class="progress-bar bg-secondary" style="width:75%">75%</div>
+          <div class="form-field">
+            <label for="contactMessage" class="form-label">Message</label>
+            <textarea class="form-control" id="contactMessage" rows="5" required aria-describedby="contactMessageError"></textarea>
+            <div class="invalid-feedback" id="contactMessageError"></div>
           </div>
-        </div>
+          <button type="submit" class="button button-dark button-full">Send</button>
+        </form>
+        <div id="formStatus" class="form-status" role="status"></div>
       </div>
     </div>
   </section>
 </main>
 
-<footer class="footer text-white text-center py-5">
-  <a href="#home" class="btn btn-light"><i class="fa fa-arrow-up me-2"></i>To the top</a>
-  <div class="fs-3 mt-4">
-    <a href="https://github.com/Jaden404" class="social-link me-2" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa fa-github"></i></a>
-    <a href="https://www.linkedin.com/in/JadenJelier" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin"></i></a>
+<footer class="footer">
+  <a href="#top" class="button"><i class="fa fa-arrow-up" aria-hidden="true"></i> To the top</a>
+  <div class="social-links">
+      <a href="https://github.com/Jaden404" class="social-link" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fa fa-github" aria-hidden="true"></i></a>
+      <a href="https://www.linkedin.com/in/JadenJelier" class="social-link" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
   </div>
 </footer>
-
-<div class="modal fade" id="modalContact" tabindex="-1" aria-labelledby="contactTitle">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content bg-dark text-white" data-bs-theme="dark">
-      <div class="modal-header border-0">
-        <h2 class="modal-title fs-4" id="contactTitle">Contact me</h2>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="contactForm" novalidate>
-          <div class="mb-3">
-            <label for="contactName" class="form-label">Name</label>
-            <input type="text" class="form-control" id="contactName" autocomplete="name" required aria-describedby="contactNameError">
-            <div class="invalid-feedback" id="contactNameError"></div>
-          </div>
-          <div class="mb-3">
-            <label for="contactEmail" class="form-label">Email</label>
-            <input type="email" class="form-control" id="contactEmail" autocomplete="email" required aria-describedby="contactEmailError">
-            <div class="invalid-feedback" id="contactEmailError"></div>
-          </div>
-          <div class="mb-3">
-            <label for="contactMessage" class="form-label">Message</label>
-            <textarea class="form-control" id="contactMessage" rows="5" required aria-describedby="contactMessageError"></textarea>
-            <div class="invalid-feedback" id="contactMessageError"></div>
-          </div>
-          <button type="submit" class="btn btn-light w-100">Send</button>
-        </form>
-        <div id="formStatus" class="mt-3" role="status"></div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="contact.js"></script>

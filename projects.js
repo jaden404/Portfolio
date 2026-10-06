@@ -75,12 +75,12 @@ const openProject = (project) => {
 };
 
 const createProjectCard = (project) => {
-  const column = document.createElement("div");
-  column.className = "col-lg-4 col-md-6";
+  const card = document.createElement("article");
+  card.className = "project-card";
 
   const button = document.createElement("button");
   button.type = "button";
-  button.className = "tile-box border-0 p-0";
+  button.className = "tile-box";
   button.addEventListener("click", () => openProject(project));
 
   const image = document.createElement("img");
@@ -88,16 +88,16 @@ const createProjectCard = (project) => {
   image.alt = `Show details of ${project.title}`;
 
   const title = document.createElement("h2");
-  title.className = "fs-5 mt-3 mb-0";
+  title.className = "project-title";
   title.textContent = project.title;
 
   const details = document.createElement("p");
-  details.className = "text-muted small";
+  details.className = "project-meta";
   details.textContent = `${project.category}, ${project.year}`;
 
   button.appendChild(image);
-  column.append(button, title, details);
-  return column;
+  card.append(button, title, details);
+  return card;
 };
 
 const showProjectCount = (count) => {
