@@ -108,7 +108,7 @@ img {
   min-height: calc(100vh - var(--nav-height));
   padding: 4rem 0;
   color: #ffffff;
-  background-image: url("images/mac.jpg");
+  Background-color: #26795096;
   background-size: cover;
   background-position: center;
 }
