@@ -30,7 +30,7 @@ const showFact = (data) => {
   fact.className = "fact-text";
   fact.textContent = data.text;
 
-  factBox.append(label, fact);
+ 
 
   if (data.source && data.source_url) {
     factBox.appendChild(createSourceLink(data));
